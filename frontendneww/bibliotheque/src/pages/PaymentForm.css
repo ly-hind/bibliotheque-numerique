@@ -1,0 +1,88 @@
+/* Conteneur de la page de paiement */
+.payment-container {
+    background-color: transparent;  /* Fond du conteneur correspondant à l'arrière-plan général du site */
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 50px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Changer la couleur des titres en noir */
+.payment-container h2, .payment-container h3 {
+    color: #000000;  /* Titres en noir */
+    text-align: center;
+}
+
+/* Couleur des textes explicatifs en blanc */
+.payment-container p {
+    color: #f0f0f0;  /* Textes en blanc */
+    font-size: 1.2em;
+}
+
+/* Style pour les boutons */
+.btn-card {
+    background-color: #4C6EF5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-card i {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+.btn-card:hover {
+    background-color: #3b59db;
+}
+
+.btn-paypal {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-paypal img {
+    width: 150px;
+}
+
+.btn-paypal:hover {
+    transform: scale(1.05);
+}
+
+button[type="submit"] {
+    background-color: #4C6EF5;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #3b59db;
+}

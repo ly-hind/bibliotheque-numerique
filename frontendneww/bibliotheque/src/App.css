@@ -1,0 +1,541 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #f0f0f0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Style pour la barre de navigation */
+.navbar {
+  background: linear-gradient(45deg, #2D3E50, #4C6EF5);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 40px; /* Augmentation de l'espace entre les éléments */
+  font-family: 'Georgia', serif;
+}
+
+.navbar-links li {
+  padding: 0 10px;
+  position: relative;
+}
+
+.navbar-links a {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  font-size: 1.3em; /* Taille plus uniforme */
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #ffd700;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown menu style */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #a89735;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  font-family: 'Georgia', serif;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Style du titre principal */
+h1 {
+  font-size: 3em;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  text-align: center;
+  color: #f0f0f0;
+  margin-top: 30px;
+}
+
+/* Accueil et section statistique */
+.home {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.stats-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+}
+
+.icon {
+  font-size: 50px;
+  color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.stat-label {
+  font-size: 1.2em;
+  margin-top: 5px;
+  color: #f0f0f0;
+}
+
+/* Section Mission, Vision, Valeurs */
+.mission-vision-values {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+  padding: 20px;
+  color: white;
+}
+
+.mission, .vision, .values {
+  max-width: 300px;
+  background-color: rgba(45, 64, 89, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.mission h3, .vision h3, .values h3 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+
+.mission p, .vision p, .values p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  color: #f0f0f0;
+}
+
+/* Style du carrousel */
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+
+.carousel-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.carousel-button {
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  color: #ffd700;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+.carousel-button:hover {
+  color: #f0f0f0;
+}
+
+/* Footer styling */
+footer {
+  background-color: #2d4059;
+  color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer-item {
+  margin: 10px 0;
+}
+
+.footer-item a {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.footer-item a:hover {
+  color: #f0f0f0;
+}
+
+.footer-item a svg {
+  margin-right: 10px;
+}
+
+/* Logo et titre */
+.header h1 {
+  font-size: 3em;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 100px;
+  height: auto;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+/* Style global pour centrer le formulaire */
+
+
+.form-container {
+  background-color: #2d4059;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #f0f0f0;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="date"], 
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f0f0f0;
+  font-size: 1.1em;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4C6EF5;
+  color: #fff;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3b59db;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+.livre-list-container {
+  padding: 20px;
+}
+
+.livre-list-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: #ffd700;
+  margin-bottom: 30px;
+}
+
+.livre-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.livre-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #2d4059;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.livre-details {
+  max-width: 60%;
+}
+
+.livre-nom {
+  font-size: 1.8em;
+  color: #ffd700;
+}
+
+.livre-description {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.livre-annee,
+.livre-type,
+.livre-prix {
+  margin-top: 10px;
+}
+
+.livre-image {
+  max-width: 30%;
+  text-align: center;
+}
+
+.livre-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.dashboard-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #2d4059;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.info-container p {
+  color: #f0f0f0;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.info-container p strong {
+  color: #ffd700;
+}
+.reservations-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.reservations-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reservation-item {
+  background-color: #2d4059;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-item h2 {
+  color: #ffd700;
+}
+
+.reservation-item p {
+  color: #f0f0f0;
+}
+
+.confirm-button {
+  background-color: #4C6EF5;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background-color: #3b59db;
+}
+/* Style pour le bouton "Payer par carte" */
+.btn-card {
+  background-color: #4C6EF5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-card i {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+.btn-card:hover {
+  background-color: #3b59db;
+}
+
+/* Style pour le bouton "Payer avec PayPal" */
+.btn-paypal {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-paypal img {
+  width: 150px;
+}
+
+.btn-paypal:hover {
+  transform: scale(1.05);
+}
+
+/* Style pour le formulaire de paiement */
+.payment-container h2, .payment-container h3 {
+  color: #ffd700;
+  text-align: center;
+}
+
+.payment-container p {
+  color: #f0f0f0;
+}
+
+button[type="submit"] {
+  background-color: #4C6EF5;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #3b59db;
+}
+.white-link {
+  color: white;
+  text-decoration: none;
+}
+
+.white-link:hover {
+  color: #ccc;  /* Couleur quand on passe la souris */
+}
+
+
