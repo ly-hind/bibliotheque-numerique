@@ -6,7 +6,7 @@ const LivresReserves = () => {
 
   useEffect(() => {
     // Récupérer la liste des livres réservés au chargement de la page
-    axios.get('http://localhost:3001/livre/reserved') // API pour obtenir les livres réservés
+    axios.get('https://employe-oub4.onrender.com/livre/reserved') // API pour obtenir les livres réservés
       .then(response => {
         setLivres(response.data); // Met à jour l'état avec les livres réservés
       })
@@ -17,7 +17,7 @@ const LivresReserves = () => {
 
   // Fonction pour confirmer la réservation et mettre à jour le statut 'disponible' en false
   const confirmerReservation = (id) => {
-    axios.put(`http://localhost:3001/livre/${id}/confirmer`) // API pour confirmer la réservation
+    axios.put(`https://employe-oub4.onrender.com/livre/${id}/confirmer`) // API pour confirmer la réservation
       .then(response => {
         // Mise à jour locale de l'état des livres
         setLivres(livres.map(livre => 
@@ -31,7 +31,7 @@ const LivresReserves = () => {
   };
 
   const ajouterFacture = (idLivre) => {
-    axios.post(`http://localhost:3002/clients/${idLivre}/ajouterFacture`)
+    axios.post(`https://client-dseq.onrender.com/clients/${idLivre}/ajouterFacture`)
       .then(response => {
         alert('Facture ajoutée avec succès.');
       })
@@ -57,7 +57,7 @@ const LivresReserves = () => {
             <p>Année: {livre.annee}</p>
             <p>Type: {livre.type}</p>
             <p>Prix: {livre.prix} €</p>
-            <img src={`http://localhost:3001/${livre.img}`} alt={livre.nom} />
+            <img src={`https://employe-oub4.onrender.com/${livre.img}`} alt={livre.nom} />
             <p>Date de retour : {new Date(livre.dateDeRetour).toLocaleDateString()}</p>
             
             {/* Bouton "Confirmer" qui change la disponibilité du livre */}

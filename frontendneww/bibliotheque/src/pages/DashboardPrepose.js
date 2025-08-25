@@ -8,7 +8,7 @@ function DashboardPrepose() {
     const [preposeInfo, setPreposeInfo] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/prepose/${preposeId}`)
+        axios.get(`https://employe-oub4.onrender.com/prepose/${preposeId}`)
             .then(response => {
                 setPreposeInfo(response.data);
             })

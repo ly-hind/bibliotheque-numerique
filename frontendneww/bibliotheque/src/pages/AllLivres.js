@@ -6,7 +6,7 @@ const LivreList = () => {
 
   useEffect(() => {
     // Récupérer la liste des livres au chargement de la page
-    axios.get('http://localhost:3001/livre/')
+    axios.get('https://employe-oub4.onrender.com/livre/')
       .then(response => {
         setLivres(response.data);
       })
@@ -30,7 +30,7 @@ const LivreList = () => {
             </div>
             <div className="livre-image">
               <img 
-                src={`http://localhost:3001/${livre.img}`} 
+                src={`https://employe-oub4.onrender.com/${livre.img}`} 
                 alt={livre.nom} 
                 className="livre-img"
               />

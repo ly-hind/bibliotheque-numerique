@@ -8,7 +8,7 @@ function DashboardComptable() {
     const [comptableInfo, setComptableInfo] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/comptable/${comptaId}`)
+        axios.get(`https://employe-oub4.onrender.com/comptable/${comptaId}`)
             .then(response => {
                 setComptableInfo(response.data);
             })

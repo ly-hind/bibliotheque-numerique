@@ -9,7 +9,7 @@ function DashboardGerant() {
 
     useEffect(() => {
         // Appel pour récupérer les informations du gérant avec son ID
-        axios.get(`http://localhost:3001/gerant/${gerantId}`)
+        axios.get(`https://employe-oub4.onrender.com/gerant/${gerantId}`)
             .then(response => {
                 setGerantInfo(response.data);
             })

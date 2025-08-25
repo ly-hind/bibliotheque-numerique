@@ -68,7 +68,7 @@ function InscriptionBibliothequaire() {
         if (validateForm()) {
             try {
                 const age = calculerAge(dateNaissance); // Calcul de l'âge
-                const response = await axios.post('http://localhost:3001/bibliothequaire/register', {
+                const response = await axios.post('https://employe-oub4.onrender.com/bibliothequaire/register', {
                     nom,
                     prenom,
                     age, // Envoi de l'âge au lieu de la date de naissance

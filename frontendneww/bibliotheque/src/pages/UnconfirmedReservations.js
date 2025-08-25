@@ -6,7 +6,7 @@ const UnconfirmedReservations = () => {
 
   useEffect(() => {
     // Récupérer la liste des réservations non confirmées
-    axios.get('http://localhost:3001/reservations/unconfirmed')
+    axios.get('https://employe-oub4.onrender.com/reservations/unconfirmed')
       .then(response => {
         setReservations(response.data);
       })
@@ -17,7 +17,7 @@ const UnconfirmedReservations = () => {
 
   // Fonction pour basculer le statut de confirmation d'une réservation
   const toggleConfirmation = (id) => {
-    axios.put(`http://localhost:3001/reservations/toggleConfirmation/${id}`)
+    axios.put(`https://employe-oub4.onrender.com/reservations/toggleConfirmation/${id}`)
       .then(response => {
         // Mise à jour locale de l'état des réservations
         setReservations(reservations.map(reservation => 
@@ -32,7 +32,7 @@ const UnconfirmedReservations = () => {
 
   // Fonction pour basculer le statut "reserver" et "disponible" du livre
   const toggleLivreReservation = (livreId) => {
-    axios.put(`http://localhost:3001/livre/${livreId}/toggleReservation`)
+    axios.put(`https://employe-oub4.onrender.com/livre/${livreId}/toggleReservation`)
       .then(response => {
         alert('Le statut du livre a été mis à jour.');
       })

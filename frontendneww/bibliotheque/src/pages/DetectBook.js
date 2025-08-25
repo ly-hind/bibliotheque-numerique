@@ -8,7 +8,7 @@ const DetectBook = () => {
     setMessage('Lancement de la détection...');
     try {
       // Envoyer une requête GET à l'API backend pour lancer le script Python
-      const response = await axios.get('http://localhost:3001/launch-python');
+      const response = await axios.get('https://employe-oub4.onrender.com/launch-python');
       setMessage(response.data.message);  // Afficher le message reçu du backend
     } catch (error) {
       setMessage('Erreur lors du lancement de l\'application Python');

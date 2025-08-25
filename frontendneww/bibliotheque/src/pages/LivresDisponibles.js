@@ -7,7 +7,7 @@ const LivresDisponibles = () => {
 
   useEffect(() => {
     // Récupérer la liste des livres disponibles au chargement de la page
-    axios.get('http://localhost:3001/livre/disponible')
+    axios.get('https://employe-oub4.onrender.com/livre/disponible')
       .then(response => {
         setLivres(response.data);
       })
@@ -27,7 +27,7 @@ const LivresDisponibles = () => {
             <p>Année: {livre.annee}</p>
             <p>Type: {livre.type}</p>
             <p>Prix: {livre.prix} €</p>
-            <img src={`http://localhost:3001/${livre.img}`} alt={livre.nom} />  
+            <img src={`https://employe-oub4.onrender.com/${livre.img}`} alt={livre.nom} />  
 
           </li>
         ))}

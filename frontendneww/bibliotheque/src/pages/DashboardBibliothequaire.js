@@ -9,7 +9,7 @@ function DashboardBibliothequaire() {
 
     useEffect(() => {
         // Appel à l'API pour récupérer les informations du bibliothécaire avec son ID
-        axios.get(`http://localhost:3001/bibliothequaire/${bibliothequaireId}`)
+        axios.get(`https://employe-oub4.onrender.com/bibliothequaire/${bibliothequaireId}`)
             .then(response => {
                 setBibliothequaireInfo(response.data);
             })

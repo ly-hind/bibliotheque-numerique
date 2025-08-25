@@ -72,7 +72,7 @@ function InscriptionPrepose() {
 
         try {
             const age = calculerAge(dateNaissance); // Calcul de l'âge
-            const response = await axios.post('http://localhost:3001/prepose/register', {
+            const response = await axios.post('https://employe-oub4.onrender.com/prepose/register', {
                 nom,
                 prenom,
                 age, // Envoi de l'âge au lieu de la date de naissance

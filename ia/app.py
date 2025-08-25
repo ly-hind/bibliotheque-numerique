@@ -74,7 +74,7 @@ def capture_and_compare_images(known_images, known_names):
 
                     # Envoi du nom du code-barres trouvé au backend via une requête HTTP POST
                     try:
-                        response = requests.post('http://localhost:3001/api/barcode-found', json={'name': found_name})
+                        response = requests.post('https://employe-oub4.onrender.com/api/barcode-found', json={'name': found_name})
                         print(f"Réponse du serveur : {response.status_code}")
                     except Exception as e:
                         print(f"Erreur lors de l'envoi des données : {e}")

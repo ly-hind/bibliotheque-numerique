@@ -13,7 +13,7 @@ exports.ajouterFacture = async (req, res) => {
 
     // Appel direct à l'API employe (remplace l'import du modèle Reservation)
     const { data: reservation } = await axios.get(
-      'https://<ton-employe-service>.onrender.com/reservations/by-livre/' + idLivre
+      'https://employe-oub4.onrender.com/reservations/by-livre/' + idLivre
     );
 
     if (!reservation) {

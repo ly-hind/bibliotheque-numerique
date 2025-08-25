@@ -8,7 +8,7 @@ function DashboardClient() {
     const [clientInfo, setClientInfo] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3002/clients/${clientId}`)
+        axios.get(`https://client-dseq.onrender.com/clients/${clientId}`)
             .then(response => {
                 setClientInfo(response.data);
             })

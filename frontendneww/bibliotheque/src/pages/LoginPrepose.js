@@ -11,7 +11,7 @@ function LoginPrepose() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/prepose/login', {
+            const response = await axios.post('https://employe-oub4.onrender.com/prepose/login', {
                 email,
                 password,
             });

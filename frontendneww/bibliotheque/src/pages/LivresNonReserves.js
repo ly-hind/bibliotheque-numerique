@@ -6,7 +6,7 @@ const LivresNonReserves = () => {
 
   useEffect(() => {
     // Récupérer la liste des livres réservés au chargement de la page
-    axios.get('http://localhost:3001/livre/nonreserved') // Modification pour obtenir les livres réservés
+    axios.get('https://employe-oub4.onrender.com/livre/nonreserved') // Modification pour obtenir les livres réservés
       .then(response => {
         setLivres(response.data); // Met à jour l'état avec les livres réservés
       })
@@ -26,7 +26,7 @@ const LivresNonReserves = () => {
             <p>Année: {livre.annee}</p>
             <p>Type: {livre.type}</p>
             <p>Prix: {livre.prix} €</p>
-            <img src={`http://localhost:3001/${livre.img}`} alt={livre.nom} />
+            <img src={`https://employe-oub4.onrender.com/${livre.img}`} alt={livre.nom} />
           </li>
         ))}
       </ul>

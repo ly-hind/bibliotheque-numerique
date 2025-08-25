@@ -7,7 +7,7 @@ function RetourLivre() {
 
   // Récupérer toutes les réservations confirmées
   useEffect(() => {
-    axios.get('http://localhost:3001/reservations/confirmedReservations')
+    axios.get('https://employe-oub4.onrender.com/reservations/confirmedReservations')
       .then(response => {
         setReservations(response.data);
       })
@@ -19,7 +19,7 @@ function RetourLivre() {
   // Fonction pour supprimer une réservation et rendre le livre disponible
   const handleDeleteReservation = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/reservations/reservation/${id}`);
+      await axios.delete(`https://employe-oub4.onrender.com/reservations/reservation/${id}`);
       setMessage('Réservation supprimée et livre disponible.');
 
       // Mettre à jour la liste des réservations après suppression

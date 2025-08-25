@@ -8,7 +8,7 @@ function UnavailableLivres() {
   useEffect(() => {
     const fetchLivres = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/livre/indisponible');
+        const response = await axios.get('https://employe-oub4.onrender.com/livre/indisponible');
         setLivres(response.data);
       } catch (error) {
         setMessage('Une erreur est survenue lors de la récupération des livres.');
@@ -33,7 +33,7 @@ function UnavailableLivres() {
               <p><strong>Prix :</strong> {livre.prix} €</p>
               <p><strong>Réservé :</strong> {livre.reserver ? 'Oui' : 'Non'}</p>
               <p><strong>Disponible :</strong> {livre.disponible ? 'Oui' : 'Non'}</p>
-              <img src={`http://localhost:3001/${livre.img}`} alt={livre.nom} className="livre-image" />
+              <img src={`https://employe-oub4.onrender.com/${livre.img}`} alt={livre.nom} className="livre-image" />
             </li>
           ))
         ) : (

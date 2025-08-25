@@ -46,7 +46,7 @@ function InscriptionClient() {
 
         try {
             const age = calculerAge(dateNaissance); // Calcul de l'âge
-            await axios.post('http://localhost:3002/clients/register', {
+            await axios.post('https://client-dseq.onrender.com/clients/register', {
                 nom,
                 prenom,
                 age, // Envoi de l'âge au lieu de la date de naissance

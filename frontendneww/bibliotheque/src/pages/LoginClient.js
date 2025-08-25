@@ -11,7 +11,7 @@ function LoginClient() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3002/clients/login', {
+            const response = await axios.post('https://client-dseq.onrender.com/clients/login', {
                 email,
                 password,
             });

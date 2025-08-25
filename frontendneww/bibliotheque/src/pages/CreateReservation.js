@@ -12,7 +12,7 @@ const CreateReservation = () => {
   // Fonction pour récupérer l'ID du client par nom
   const fetchClientId = async () => {
     try {
-      const response = await axios.get(`http://localhost:3002/clients/byname/${nomClient}`);
+      const response = await axios.get(`https://client-dseq.onrender.com/clients/byname/${nomClient}`);
       if (response.data && response.data._id) {
         setIdClient(response.data._id);
       } else {
@@ -30,7 +30,7 @@ const CreateReservation = () => {
   const fetchLivresIds = async () => {
     try {
       const livresArray = nomLivres.split(',').map(livre => livre.trim());
-      const response = await axios.post('http://localhost:3001/livre/getByNames', { noms: livresArray });
+      const response = await axios.post('https://employe-oub4.onrender.com/livre/getByNames', { noms: livresArray });
 
       if (response.data.length === 0) {
         throw new Error("Aucun livre trouvé");
@@ -72,7 +72,7 @@ const CreateReservation = () => {
         dateDeRetour, // Ajouter date de retour
       };
 
-      axios.post('http://localhost:3001/reservations/create', data)
+      axios.post('https://employe-oub4.onrender.com/reservations/create', data)
         .then(response => {
           setMessage('Réservation créée avec succès');
         })

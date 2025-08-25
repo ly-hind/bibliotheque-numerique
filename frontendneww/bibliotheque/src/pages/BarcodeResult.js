@@ -7,13 +7,13 @@ const BarcodeResult = () => {
 
   useEffect(() => {
     // Requête à l'API pour récupérer le dernier code-barres trouvé
-    axios.get('http://localhost:3001/api/get-latest-barcode')
+    axios.get('https://employe-oub4.onrender.com/api/get-latest-barcode')
       .then(response => {
         const foundBarcodeName = response.data.name;
         setBarcodeName(foundBarcodeName);
 
         // Requête supplémentaire pour obtenir les détails du livre correspondant
-        return axios.get(`http://localhost:3001/api/livres/${foundBarcodeName}`);
+        return axios.get(`https://employe-oub4.onrender.com/api/livres/${foundBarcodeName}`);
       })
       .then(bookResponse => {
         setBookDetails(bookResponse.data);
@@ -36,7 +36,7 @@ const BarcodeResult = () => {
           <p><strong>Année :</strong> {new Date(bookDetails.annee).getFullYear()}</p>
           <p><strong>Prix :</strong> {bookDetails.prix} €</p>
           <p><strong>Type :</strong> {bookDetails.type}</p>
-          <img src={`http://localhost:3001/${bookDetails.img}`} alt={bookDetails.nom} />
+          <img src={`https://employe-oub4.onrender.com/${bookDetails.img}`} alt={bookDetails.nom} />
         </div>
       ) : (
         <p>Aucun livre trouvé pour ce code-barres.</p>
