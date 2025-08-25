@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Membre = require('../Models/Membre');
-const Reservation = require('../../employe/Models/Reservation'); // Assure-toi que le modèle Reservation est importé
 
 
 const JWT_SECRET = 'votre_clé_secrète'; 
@@ -12,29 +11,34 @@ exports.ajouterFacture = async (req, res) => {
   try {
     const { idLivre } = req.params;
 
-    // Trouver la réservation correspondante à ce livre
-    const reservation = await Reservation.findOne({ idLivres: idLivre }).populate('idClient');
+    // Appel direct à l'API employe (remplace l'import du modèle Reservation)
+    const { data: reservation } = await axios.get(
+      'https://<ton-employe-service>.onrender.com/reservations/by-livre/' + idLivre
+    );
 
     if (!reservation) {
       return res.status(404).json({ message: "Réservation non trouvée pour ce livre." });
     }
 
-    const clientId = reservation.idClient._id;
+    const clientId = reservation?.idClient?._id || reservation?.idClient;
 
+    // Recherche du client dans la base Mongo du service client
     const client = await Membre.findById(clientId);
-
     if (!client) {
       return res.status(404).json({ message: "Client non trouvé." });
     }
 
-    client.solde += 20;
-    client.facture += 20;
+    client.solde = (client.solde ?? 0) + 20;
+    client.facture = (client.facture ?? 0) + 20;
 
     await client.save();
 
     res.status(200).json({ message: 'Facture et solde mis à jour avec succès', client });
   } catch (error) {
-    console.error('Erreur lors de la mise à jour de la facture et du solde', error);
+    if (error.response && error.response.status === 404) {
+      return res.status(404).json({ message: "Réservation non trouvée pour ce livre." });
+    }
+    console.error('Erreur lors de la mise à jour de la facture et du solde', error.message);
     res.status(500).json({ message: 'Erreur lors de la mise à jour de la facture et du solde. Veuillez réessayer plus tard.' });
   }
 };

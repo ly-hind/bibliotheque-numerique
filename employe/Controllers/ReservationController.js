@@ -2,6 +2,26 @@ const Reservation = require('../Models/Reservation');
 const Livre = require('../Models/Livre');
 
 
+
+
+exports.getReservationByLivre = async (req, res) => {
+  try {
+    const { idLivre } = req.params;
+    const reservation = await Reservation
+      .findOne({ idLivres: idLivre }) // adapte si ton champ est "idLivre" simple
+      .populate('idClient');
+
+    if (!reservation) {
+      return res.status(404).json({ message: "Réservation non trouvée pour ce livre." });
+    }
+
+    res.json(reservation);
+  } catch (err) {
+    console.error('Erreur lors de la récupération de la réservation :', err);
+    res.status(500).json({ message: 'Erreur serveur lors de la récupération de la réservation.' });
+  }
+}; 
+
 exports.toggleConfirmation = async (req, res) => {
   try {
     const reservation = await Reservation.findById(req.params.id);
